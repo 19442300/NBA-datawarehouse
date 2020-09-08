@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "MiniProject For Cube", "MiniProject For Cube\MiniProject For Cube.dwproj", "{CF4EFC13-89F8-4B38-A910-55CA34A20F67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF4EFC13-89F8-4B38-A910-55CA34A20F67}.Development|Default.ActiveCfg = Development
+		{CF4EFC13-89F8-4B38-A910-55CA34A20F67}.Development|Default.Build.0 = Development
+		{CF4EFC13-89F8-4B38-A910-55CA34A20F67}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

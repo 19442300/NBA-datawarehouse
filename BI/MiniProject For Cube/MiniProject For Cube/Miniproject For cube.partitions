@@ -1,0 +1,65 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e3d56a8d-ee39-42f3-9e4f-344ca4a367df" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Miniproject For cube</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Tbl Playoffs</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="2b578bfe-7581-4e15-bf2c-9fb0590cc4a4">
+          <ID>Tbl Playoffs</ID>
+          <Name>Tbl Playoffs</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="10903caf-5c15-4f00-9c8e-f48ba18d9d1c">
+            <DataSourceViewID>Miniproject For testcube</DataSourceViewID>
+            <TableID>dbo_tbl_Playoffs</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Tbl Regular Season</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="aa7d34f5-78e3-4b5a-a7c1-b6764e992deb">
+          <ID>Tbl Regular Season</ID>
+          <Name>Tbl Regular Season</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="2ecdae87-b3a4-42cf-9c52-a4e7551c4ff8">
+            <DataSourceViewID>Miniproject For testcube</DataSourceViewID>
+            <TableID>dbo_tbl_regularSeason</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Tbl Teamseason</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="d14fddb6-5395-4c1f-ab0e-409c87c72b97">
+          <ID>Tbl Teamseason</ID>
+          <Name>Tbl Teamseason</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="88f4dc22-3063-4881-a7d6-4f59042cfcfd">
+            <DataSourceViewID>Miniproject For testcube</DataSourceViewID>
+            <TableID>dbo_tbl_teamseason</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

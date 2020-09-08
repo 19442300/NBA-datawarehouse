@@ -1,0 +1,75 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>MiniProject For Cube</Database>
+    <Server>localhost</Server>
+    <ConnectionString>DataSource=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>DpjSRmJNBArbDZodV+f2veGd+Pw=4/26/2020 3:45:54 PM4/26/2020 3:45:54 PM</TimeStamp>
+        <ID>
+          <String>Miniproject For Merge</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>37zsIixLgBDIMhVHbwPa1xPNc8Q=4/27/2020 6:19:58 PM4/26/2020 4:28:38 PM</TimeStamp>
+        <ID>
+          <String>Miniproject For testcube</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>rvW/3U86Ii7ZgMUoFFnKW1+J19w=4/30/2020 3:38:13 PM4/27/2020 6:19:58 PM</TimeStamp>
+        <ID>
+          <String>Tbl Players</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>9gGjZEDCcgxf+BM7Gsvo+5hr92Y=4/27/2020 6:19:58 PM4/27/2020 6:19:58 PM</TimeStamp>
+        <ID>
+          <String>Tbl Years</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>FWHtlVb6MOlCYzGA9znWMRTLLD0=4/27/2020 6:36:29 PM4/27/2020 6:19:58 PM</TimeStamp>
+        <ID>
+          <String>Tbl Team State</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>TlxiCSzMBHMDseeIrT3YqbEq32I=4/30/2020 3:38:13 PM4/27/2020 6:19:58 PM9TcUXUl5sjubIEQ1lkgOPIzUVH8=4/27/2020 6:19:58 PM4/27/2020 6:19:58 PM</TimeStamp>
+        <ID>
+          <String>Miniproject For cube</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>UZYoAjWiZ49lEguSBvCcIvt4uwo=4/26/2020 5:46:40 PM4/26/2020 3:15:30 PM</TimeStamp>
+      <ID>
+        <String>MiniProject For Cube</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2020-04-30T08:58:57.45Z</LastDeployed>
+</DeploymentSnapshot>

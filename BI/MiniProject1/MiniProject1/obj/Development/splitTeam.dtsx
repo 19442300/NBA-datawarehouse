@@ -1,0 +1,837 @@
+<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="demo-PC\demo"
+  DTS:CreatorComputerName="DEMO-PC"
+  DTS:CreationDate="4/25/2020 4:21:48 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{BB6C272B-DFD0-4D23-8E31-33E38B599222}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="splitTeam"
+  DTS:DTSID="{26576492-0941-4C2A-8288-8450BFDE8732}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Miniproject_for_merge]"
+      DTS:ObjectName="localhost.Miniproject_for_merge"
+      DTS:DTSID="{9789FE7D-DE50-42E5-A574-AAEEAAD43C9E}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Miniproject_for_merge;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\split"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="split"
+      DTS:DTSID="{56A79752-6C8A-452A-B6C5-E2B2A26F4AA4}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\split\Conditional Split"
+              name="Conditional Split"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              usesDispositions="true"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\split\Conditional Split.Inputs[Conditional Split Input]"
+                  name="Conditional Split Input"
+                  description="Input to the Conditional Split Transformation">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\split\Conditional Split.Inputs[Conditional Split Input].Columns[leag]"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[leag]"
+                      cachedName="leag"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\split\Conditional Split.Outputs[Case 1]"
+                  name="Case 1"
+                  description="Output 1 of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\split\Conditional Split.Inputs[Conditional Split Input]"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      name="Expression"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      containsID="true">#{Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[leag]} == "N"</property>
+                    <property
+                      name="FriendlyExpression"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      containsID="true"
+                      expressionType="Notify">leag == "N"</property>
+                    <property
+                      name="EvaluationOrder"
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value.">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\split\Conditional Split.Outputs[Case 2]"
+                  name="Case 2"
+                  description="Output 2 of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\split\Conditional Split.Inputs[Conditional Split Input]"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      name="Expression"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      containsID="true">#{Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[leag]} == "A"</property>
+                    <property
+                      name="FriendlyExpression"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      containsID="true"
+                      expressionType="Notify">leag == "A"</property>
+                    <property
+                      name="EvaluationOrder"
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value.">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\split\Conditional Split.Outputs[Conditional Split Default Output]"
+                  name="Conditional Split Default Output"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\split\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      name="IsDefaultOut"
+                      dataType="System.Boolean">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\split\Conditional Split.Outputs[Conditional Split Error Output]"
+                  name="Conditional Split Error Output"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\split\Conditional Split.Inputs[Conditional Split Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\split\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\split\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\split\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\split\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\split\OLE DB Destination"
+              name="OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[tbl_NBAteam]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\split\OLE DB Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[localhost.Miniproject_for_merge]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Miniproject_for_merge]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[team]"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[team]"
+                      externalMetadataColumnId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[team]"
+                      cachedName="team"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Team Name]"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[Team Name]"
+                      externalMetadataColumnId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Team Name]"
+                      cachedName="Team Name"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[leag]"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[leag]"
+                      externalMetadataColumnId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[leag]"
+                      cachedName="leag"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State Code]"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[State Code]"
+                      externalMetadataColumnId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State Code]"
+                      cachedName="State Code"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[team]"
+                      name="team"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Team Name]"
+                      name="Team Name"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[leag]"
+                      name="leag"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State Code]"
+                      name="State Code"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\split\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\split\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\split\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\split\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\split\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\split\OLE DB Destination 1"
+              name="OLE DB Destination 1"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[tbl_ABAteam]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\split\OLE DB Destination 1.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[localhost.Miniproject_for_merge]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Miniproject_for_merge]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[team]"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[team]"
+                      externalMetadataColumnId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[team]"
+                      cachedName="team"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Team Name]"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[Team Name]"
+                      externalMetadataColumnId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Team Name]"
+                      cachedName="Team Name"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[leag]"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[leag]"
+                      externalMetadataColumnId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[leag]"
+                      cachedName="leag"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[State Code]"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[State Code]"
+                      externalMetadataColumnId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[State Code]"
+                      cachedName="State Code"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[team]"
+                      name="team"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Team Name]"
+                      name="Team Name"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[leag]"
+                      name="leag"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[State Code]"
+                      name="State Code"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\split\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\split\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\split\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\split\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\split\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\split\OLE DB Source"
+              name="OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[tbl_teams]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\split\OLE DB Source.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[localhost.Miniproject_for_merge]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Miniproject_for_merge]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\split\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[team]"
+                      name="team"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[team]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[team]" />
+                    <outputColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[Team Name]"
+                      name="Team Name"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[Team Name]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Team Name]" />
+                    <outputColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[leag]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[leag]" />
+                    <outputColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[State Code]"
+                      name="State Code"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].Columns[State Code]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State Code]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[team]"
+                      name="team"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Team Name]"
+                      name="Team Name"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[leag]"
+                      name="leag"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State Code]"
+                      name="State Code"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\split\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[team]"
+                      name="team"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[team]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Team Name]"
+                      name="Team Name"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Team Name]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[leag]"
+                      name="leag"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[leag]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State Code]"
+                      name="State Code"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State Code]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\split\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\split\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\split.Paths[Case 1]"
+              name="Case 1"
+              startId="Package\split\Conditional Split.Outputs[Case 1]"
+              endId="Package\split\OLE DB Destination.Inputs[OLE DB Destination Input]" />
+            <path
+              refId="Package\split.Paths[Case 2]"
+              name="Case 2"
+              startId="Package\split\Conditional Split.Outputs[Case 2]"
+              endId="Package\split\OLE DB Destination 1.Inputs[OLE DB Destination Input]" />
+            <path
+              refId="Package\split.Paths[OLE DB Source Output]"
+              name="OLE DB Source Output"
+              startId="Package\split\OLE DB Source.Outputs[OLE DB Source Output]"
+              endId="Package\split\Conditional Split.Inputs[Conditional Split Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="99.3333333333334,42"
+          Id="Package\split"
+          TopLeft="114.499998273949,40.6999992483854" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\split">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="151.333333333334,42"
+          Id="Package\split\OLE DB Source"
+          TopLeft="221.999996672074,26.8333328296741" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\split\Conditional Split"
+          TopLeft="222.83332999299,130.833330970009" />
+        <EdgeLayout
+          Id="Package\split.Paths[OLE DB Source Output]"
+          TopLeft="299.249996665865,68.8333328296741">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.9999981403351"
+              Start="0,0"
+              End="0,54.4999981403351">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.4999981403351" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42"
+          Id="Package\split\OLE DB Destination"
+          TopLeft="93.6666652510563,263.433328598937" />
+        <NodeLayout
+          Size="181.333333333334,42"
+          Id="Package\split\OLE DB Destination 1"
+          TopLeft="381.166660966972,263.433328598937" />
+        <EdgeLayout
+          Id="Package\split.Paths[Case 1]"
+          TopLeft="300.83332999299,172.833330970009">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-121.166664741933,90.5999976289274"
+              Start="0,0"
+              End="-121.166664741933,83.0999976289274">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.2999988144637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.2999988144637"
+                    Point2="0,45.2999988144637"
+                    Point3="-4,45.2999988144637" />
+                  <mssgle:LineSegment
+                    End="-117.166664741933,45.2999988144637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-117.166664741933,45.2999988144637"
+                    Point2="-121.166664741933,45.2999988144637"
+                    Point3="-121.166664741933,49.2999988144637" />
+                  <mssgle:LineSegment
+                    End="-121.166664741933,83.0999976289274" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-75.8014183084667,50.2999988144637,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\split.Paths[Case 2]"
+          TopLeft="325.499996659656,172.833330970009">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="146.333330973983,90.5999976289273"
+              Start="0,0"
+              End="146.333330973983,83.0999976289273">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.7918772097167" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.7918772097167"
+                    Point2="0,36.7918772097167"
+                    Point3="4,36.7918772097167" />
+                  <mssgle:LineSegment
+                    End="142.333330973983,36.7918772097167" />
+                  <mssgle:CubicBezierSegment
+                    Point1="142.333330973983,36.7918772097167"
+                    Point2="146.333330973983,36.7918772097167"
+                    Point3="146.333330973983,40.7918772097167" />
+                  <mssgle:LineSegment
+                    End="146.333330973983,83.0999976289273" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="57.7630326744914,41.7918772097167,30.807265625,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\split\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\split\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\split\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

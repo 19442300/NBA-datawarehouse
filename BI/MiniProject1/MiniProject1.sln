@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "MiniProject1", "MiniProject1\MiniProject1.dtproj", "{DC383E18-A0F2-4523-B933-BCD6FC5C1CF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC383E18-A0F2-4523-B933-BCD6FC5C1CF2}.Development|Default.ActiveCfg = Development
+		{DC383E18-A0F2-4523-B933-BCD6FC5C1CF2}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
